@@ -1,1 +1,1 @@
-# dse
+# Data Science for Everyone Workshop
