@@ -43,7 +43,7 @@ The repository for this project can be cloned on your device using the commands 
 
 
 ### Acknowledgements
-Thank you Dr. Tarshizi and Erin Cooke for your guidance and collaboration on this project. Moreover, thank you to everyone involved as contributors to this repository.
+Thank you Dr. Tarshizi and Erin Cooke for your collaboration on this project. Moreover, thank you to everyone involved as contributors to this repository.
 
 ### Reference
 Leonardi, P. & Contractor, N. (2018). Better People Analytics. Harvard Business Review.  
