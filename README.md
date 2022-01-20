@@ -30,9 +30,7 @@ The repository for this project can be cloned on your device using the commands 
 * Predictive Modeling
 * Machine Learning
 * Data Visualization
-* Data Engineering
 * Programming
-* Data Manipulation
 * Case Study 
 
 ### Technologies
