@@ -38,7 +38,7 @@ The repository for this project can be cloned on your device using the commands 
 * Python
 
 ### Dataset
-* Source: [https://github.com/lshpaner/dse/blob/main/Case%20Study/accidentsFull.csv]()
+* Source: [https://raw.githubusercontent.com/lshpaner/data_science_for_everyone/main/Case%20Study/accidentsFull.csv]()
 
 
 
