@@ -46,5 +46,6 @@ The repository for this project can be cloned on your device using the commands 
 Thank you Dr. Tarshizi and Erin Cooke for your collaboration on this project. Moreover, thank you to everyone involved as contributors to this repository.
 
 ### Reference
-Leonardi, P. & Contractor, N. (2018). Better People Analytics. Harvard Business Review.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://hbr.org/2018/11/better-people-analytics 
+
+Shmueli, G., Bruce, P. C., Gedeck, P., & Patel, N. R. (2020). *Data mining for business  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  analytics: Concepts, techniques and applications in Python.* John Wiley & Sons, Inc.
