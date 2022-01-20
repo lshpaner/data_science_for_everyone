@@ -1,6 +1,6 @@
 # Data Science for Everyone Workshop
 <p align = "center">
-  <img src="https://github.com/lshpaner/dse/blob/main/usd_ds.png">
+  <img src="https://github.com/lshpaner/dse/blob/main/Miscellaneous/usd_ds.png">
 </p>
 
 ### Project Status: Completed
