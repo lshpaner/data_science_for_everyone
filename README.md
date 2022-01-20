@@ -13,7 +13,40 @@ The repository for this project can be cloned on your device using the commands 
 
 `git clone https://github.com/MSADS-505-Data-Science-for-Business/predicting_employee_attrition.git`
 
-### Project Intro/Objective
+### Project Objectives
 
 * To familiarize the users with the basic syntax of R and Python
 * To acquaint the users with exlploratory data analysis (EDA) and pre-processing.
+* To introduce the users to machine learning models while explaining various performance metrics and their relationships.
+
+### Partner(s)/Contributor(s) 
+* Dr. Ebrahim Tarshizi
+* Erin Cooke
+* Leonid Shpaner
+
+### Methods Used
+* Inferential Statistics
+* Data Mining
+* Predictive Modeling
+* Machine Learning
+* Data Visualization
+* Data Engineering
+* Programming
+* Data Manipulation
+* Case Study 
+
+### Technologies
+* R
+* Python
+
+### Dataset
+* Source: [https://github.com/lshpaner/dse/blob/main/Case%20Study/accidentsFull.csv]()
+
+
+
+### Acknowledgements
+Thank you Dr. Tarshizi and Erin Cooke for your guidance in facilitating this project. Moreover, thank you to everyone involved as contributors to this repository.
+
+### Reference
+Leonardi, P. & Contractor, N. (2018). Better People Analytics. Harvard Business Review.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://hbr.org/2018/11/better-people-analytics 
