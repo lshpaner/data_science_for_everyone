@@ -1,14 +1,16 @@
 
 ##########################################################################
 #### R/RStudio Introductory Workshop by University of San Diego (USD)#####
-####                      Date: January 22, 2022                     #####  
+####                      Date: January 21, 2022                     #####  
 ##########################################################################
 
 
 # The following link shows what each quadrant in the RStudio IDE represents:
 # https://www.leonshpaner.com/teaching/post/rstudio/
 
-# Let us start with the basics.
+# Let's talk about RStudio first. 
+
+# Let's start with the basics of R.
 
 ####################################
 #### General/Console Operations #### 
@@ -37,7 +39,7 @@ print( "This is also a string123.")
 # Obtain the path to the working directory by running the `getwd()` function. Set the working 
 # directory by running the `setwd("...")` function, filling the parentheses inside with the correct path.
 getwd() 
-setwd()
+#setwd()
 
 
 ############################
@@ -61,7 +63,7 @@ install.packages('factoextra') # clustering algorithms & visualization
 library(summarytools) # load the library first
 ?summarytools # then view the documentation
 
-# This will open the documentation in the 'Files, Plots, Packages. Help, Viewer' pane.
+# This will open the documentation in the 'Files, Plots, Packages. Help, Viewer' panel.
 
 
 ###########################################
@@ -93,12 +95,12 @@ dataframe_2
 # and call read.csv() in the following generalized format
 
 # for Windows users: 
-ex_csv_1 <- read.csv(choose.files(), header = T, quote = "'")
+#ex_csv_1 <- read.csv(choose.files(), header = T, quote = "'")
 
 # for macOS users:
-# example1.6 = read.csv(file.choose(), header = T, quote = "'")
+example1.6 = read.csv(file.choose(), header = T, quote = "'")
 
-# The `choose.files()`, `file.choose()` function calls, respectively. allow the user to locate the file on their 
+# The `choose.files()`, `file.choose()` function calls, respectively, allow the user to locate the file on their 
 # local drive, regardless of the working directory. That being said, there is more than one way to read in a 
 # `.csv` file. It does not have to exist on the local machine. If the file exists on the cloud, the path (link)
 # can be parsed into the `read.csv()` function call as a string. 
@@ -106,7 +108,7 @@ ex_csv_1 <- read.csv(choose.files(), header = T, quote = "'")
 # Now, let us print what is contained in `var 1`
 print(var1)
 
-# or we can simply call var1
+# or we can simply call or print var1
 var1
 
 # Let us assign a variable to our earlier calculation and call the variable.
@@ -166,7 +168,7 @@ FALSE * 7
 #               vectors pasted together as columns. Columns in a dataframe can be of different data 
 #               class, but values within the same column must be the same data class.
 
-#    The `c()` function is to R what `concatenate()` is to excel. For example,
+# The `c()` function is to R what `concatenate()` is to excel. For example,
 vector_1 <- c(2,3,5)
 vector_1
 
@@ -196,7 +198,7 @@ vector_3 <- c(1,3,5,7,9,20,2,8,10,35,76,89,207)
 # To this end, we can do the following:
 vector_3[c(1,5,9)]
 
-# Now if we want to access all elements within a specified range, we can specify the exact range using 
+# Now, if we want to access all elements within a specified range, we can specify the exact range using 
 # the ":" separator as follows:
 vector_3[3:11]
 
@@ -296,12 +298,25 @@ str(df_3)
 ##########################
 
 
-## Setting the seed
+## Setting the seed number
 # First, let us discuss the importance of setting a seed. Setting a seed to a specific yet arbitrary 
 # value in R ensures the reproducibility of results.
 # It is always best practice to use the same assigned seed throughout the entire experiment.
 # Setting the seed to this arbitrary number (of any length) will guarantee exactly the same 
 # output across all R sessions and users, respectively. 
+
+# Simulating a normal distribution
+# Now, we will use the `rnorm()` function to simulate a vector of 100 random normally 
+# distributed data with a mean of 50, and a standard deviation of 10. Let's compare our results!
+norm_vals <- rnorm(n = 100, mean = 50, sd = 10)
+norm_vals
+mean(norm_vals)
+
+# try again with the same seed value
+set.seed(222)
+norm_vals <- rnorm(n = 100, mean = 50, sd = 10)
+norm_vals
+mean(norm_vals)
 
 # Let us create a new data frame of numbers 1 - 100.
 mystats <- c(1:100)
@@ -327,13 +342,6 @@ describe(mystats)
 library(summarytools)
 dfSummary(mystats)
 
-# Simulating a normal distribution
-# Now, We will use the `rnorm()` function to simulate a vector of 100 random normally 
-# distributed data with a mean of 50, and a standard deviation of 10.
-set.seed(222)
-norm_vals <- rnorm(n = 100, mean = 50, sd = 10)
-norm_vals
-
 
 ###############
 #### Plots ####
@@ -355,7 +363,7 @@ hist(norm_vals,
      xlab = 'Values', # specify the x-axis label 
      ylab = 'Frequency', # specify the y-axis label
      main = 'Histogram of Simulated Data', # specify the new title
-     )
+)
 
 ## Boxplots ##
 # Similarly, we can make a boxplot in base R using the `boxplot()` function call as follows:
@@ -364,7 +372,7 @@ boxplot(norm_vals,
         xlab = '', # specify the x-axis label 
         ylab = 'Values', # specify the y-axis label
         main = 'Boxplot of Simulated Data' # specify the new title
-        )
+)
 
 
 # Now, let us pivot the boxplot by parsing in the `horizontal = TRUE` parameter:
@@ -373,7 +381,7 @@ boxplot(norm_vals, horizontal = TRUE,
         xlab = 'Values', # specify the x-axis label 
         ylab = '', # specify the y-axis label
         main = 'Boxplot of Simulated Data' # specify the new title
-        )
+)
 
 ## Scatter Plots ##
 # To make a simple scatter plot, we will simply call the `plot()` function on the same dataframe as follows:
@@ -388,7 +396,7 @@ plot(norm_vals,
 # Let us create a vector for the next example data and generate a normal quantile plot
 quant_ex <- c(48.30, 49.03, 50.24, 51.39, 48.74, 51.55, 51.17, 49.87, 50.16, 
               49.80, 46.83, 48.48, 52.24,
-    0.01, 49.50, 49.97, 48.56, 50.87)
+              0.01, 49.50, 49.97, 48.56, 50.87)
 qqnorm(quant_ex)
 qqline(quant_ex) # adding a theoretical Q-Q line
 
@@ -460,19 +468,27 @@ r1
 # dependent variable.
 simple_linear_mod <- data.frame(Hydrogen, Gas_Porosity)
 
-# By the correlation coefficient r you will see that there exists a relatively 
+# By the correlation coefficient r, you will see that there exists a relatively 
 # moderate (positive) relationship. Let us now build a simple linear model from this dataframe.
 lm_model1 <- lm(Gas_Porosity ~ Hydrogen, data = simple_linear_mod)
 summary(lm_model1)
+
+plot(Hydrogen, Gas_Porosity, 
+     main = "Scatter Plot - Gas Porosity vs. Hydrogen Content", 
+     xlab = "Hydrogen Content", ylab = "Gas Porosity",
+     pch=16, col="blue")
+abline(lm_model1, col = "red")
+text(0.72, .45, paste("Y-hat = 0.56-0.29*Hydrogen"))
+
 
 # Notice how the p-value for hydrogen content is 0.189, which lacks statistical significance
 # when compared to the alpha value of 0.05 (at the 95% confidence level). Moreover, the R-Squared value
 # of .05877 suggests that roughly 6% of the variance for gas propensity is explained by hydrogen content.
 
-# we can make the same scatter plot, but this time with a best fit line
+# we can make the same scatter plot, but this time with the best fit line
 plot(Hydrogen, 
      Gas_Porosity, main = "Scatter Plot - Gas Porosity vs. Hydrogen Content", 
-     xlab = "Hydogen Content", ylab = "Gas Porosity",
+     xlab = "Hydrogen Content", ylab = "Gas Porosity",
      pch=16, col="blue", abline(lm_model1, col="red")) 
 
 ## Multiple Linear Regression ##
@@ -580,7 +596,7 @@ rpart.plot(tree_model, main = 'Cars: Classification Tree', type=2)
 #####          Cross-Validation in R          ####
 ##################################################
 
-# We use cross-validation as a "a statistical approach for determining how well 
+# We use cross-validation as "a statistical approach for determining how well 
 # the results of a statistical investigation generalize to a different data set" (finnstats, 2021).
 # The `library(caret)` will help us in this endeavor.
 
@@ -591,7 +607,7 @@ dt <- sort(sample(nrow(mtcars), nrow(mtcars)*.75))
 train_cars <-mtcars[dt,]
 test_cars <-mtcars[-dt,]
 
-# check size dimensions of respective partions
+# check size dimensions of respective partitions 
 n_train <- nrow(train_cars)[1]
 n_test <- nrow(test_cars)[1]
 
@@ -653,13 +669,13 @@ fviz_cluster(kmeans_cars, data = mtcars) + theme_classic() # from factoextra lib
 # But what is the appropriate number of clusters that we should generate? 
 # Can we do better with more clusters?
 
-# total sum of squares
+# total the sum of squares
 kmeans_cars$totss 
 
-# between sum of squares
+# between the sum of squares
 kmeans_cars$betweenss
 
-# within sum of squares
+# within the sum of squares
 kmeans_cars$withinss 
 
 # ratio for between sum of squares/ total sum of squares
@@ -708,12 +724,12 @@ plot(wss,
 
 ## complete linkage - or largest Euclidean distance between clusters.
 ## single linkage - conversely, we look at the observations which are closest together (proximity).
-## centroid linkage - we can the distance between the centroid of each cluster.
+## centroid linkage - we can see the distance between the centroid of each cluster.
 ## group average (mean) linkage - taking the mean between the pairwise distances of the observations.
 
 ## Complete linkage is the most traditional approach. ##
 
-# The tree structure that examines this hierarchical structure is called a dendogram.
+# The tree structure that examines this hierarchical structure is called a dendrogram.
 
 auto_dist <- dist(mtcars, method ='euclidean', diag = FALSE)
 auto_cluster <- hclust(auto_dist, method ='complete')
@@ -722,31 +738,26 @@ auto_cluster <- hclust(auto_dist, method ='complete')
 plot(auto_cluster)
 rect.hclust(auto_cluster, k = 3, border = 'red') # visualize cluster borders
 
-# Our dendogram indicates which observation is within which cluster.
+# Our dendrogram indicates which observation is within which cluster.
 
 # We can cut our tree at let's say 3 clusters, segmenting them out as follows:
 cut_tree <- cutree(auto_cluster, 3) # each obs. now belongs to cluster 1,2, or 3
 mtcars$segment <- cut_tree # segment out the data
 
-# Now we can view our segmented data in the workspace window as follows:
+# Now, we can view our segmented data in the workspace window as follows:
 View(mtcars)
 
 
 
-
 ##################
-#### Sources: ####
+####  Sources ####
 ##################
-
-# finnstats. (2021, October 31). What Does Cross Validation Mean? R-bloggers. 
+# finnstats. (2021, October 31). What Does Cross-Validation Mean? R-bloggers. 
 #     https://www.r-bloggers.com/2021/10/cross-validation-in-r-with-example/
-#
 # Garbade, Michael. (2018, September 12). Understanding K-means Clustering in Machine Learning. Towards Data Science. 
 #     https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1
-#
 # GeeksforGeeks. (2020, April 22). Scope of Variable in R. GeeksforGeeks. 
 #     https://www.geeksforgeeks.org/scope-of-variable-in-r/
-#
 # Shmueli, G., Bruce, P. C., Yahav, I., Patel, N. R., & Lichtendahl Jr., K. C. (2018). 
 #     Data mining for business analytics: Concepts, techniques, and applications in R. Wiley.
 
