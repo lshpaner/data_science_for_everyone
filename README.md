@@ -16,7 +16,7 @@ The repository for this project can be cloned on your device using the commands 
 ### Project Objectives
 
 * To familiarize the users with the basic syntax of R and Python
-* To acquaint the users with exlploratory data analysis (EDA) and pre-processing.
+* To acquaint the users with exlploratory data analysis (EDA) and preprocessing.
 * To introduce the users to machine learning models while explaining various performance metrics and their relationships.
 
 ### Partner(s)/Contributor(s) 
