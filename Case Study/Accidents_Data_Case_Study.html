@@ -15485,10 +15485,10 @@ $$\hat{p}(y) = \frac{\text{exp}(b_0+b_1x_1+b_2x_2+\cdot\cdot\cdot+b_px_p)}{1+\te
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>    17</td> 
 </tr>
 <tr>
-  <th>Date:</th>            <td>Fri, 28 Jan 2022</td> <th>  Pseudo R-squ.:     </th>  <td>0.06152</td>
+  <th>Date:</th>            <td>Tue, 01 Mar 2022</td> <th>  Pseudo R-squ.:     </th>  <td>0.06152</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>22:47:49</td>     <th>  Log-Likelihood:    </th> <td> -27434.</td>
+  <th>Time:</th>                <td>21:56:26</td>     <th>  Log-Likelihood:    </th> <td> -27434.</td>
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -29233.</td>
@@ -15567,7 +15567,7 @@ $$\hat{p}(y) = \frac{\text{exp}(b_0+b_1x_1+b_2x_2+\cdot\cdot\cdot+b_px_p)}{1+\te
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the summary output table, we observe that <code>WRK_ZONE</code>, <code>INT_HWY,</code> <code>LGTCON_I_R,</code> and <code>TRAF_WAY</code> have <em>p</em>-values of 0.168, 0.173, and 0.757, respectively, thereby making these variables statistically significant where α = 0.05. We will thus remove them from the refined dataset.</p>
+<p>From the summary output table, we observe that <code>WRK_ZONE</code>, <code>INT_HWY,</code> <code>LGTCON_I_R,</code> and <code>TRAF_WAY</code> have <em>p</em>-values of 0.168, 0.173, and 0.757, respectively, thereby ruling out statistical significance where α = 0.05. We will thus remove them from the refined dataset.</p>
 
 </div>
 </div>
@@ -15753,7 +15753,7 @@ Total: 42183
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Untuned Logistic Regression Model
 Accuracy Score
-0.6025838568211449
+0.6019912291098731
 Classification Report 
                precision    recall  f1-score   support
 
@@ -16249,16 +16249,16 @@ weighted avg       0.61      0.61      0.61      8437
 
 <span class="c1"># logistic regression confusion matrix</span>
 <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">tuned_lr</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">)</span>
 
 <span class="c1"># Decision tree confusion matrix</span>
 <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">tuned_tree</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">)</span>
 
 
 <span class="c1"># random forest confusion matrix</span>
 <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">tuned_rf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Random Forest&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Random Forest&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
