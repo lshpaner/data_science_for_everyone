@@ -15488,7 +15488,7 @@ $$\hat{p}(y) = \frac{\text{exp}(b_0+b_1x_1+b_2x_2+\cdot\cdot\cdot+b_px_p)}{1+\te
   <th>Date:</th>            <td>Tue, 01 Mar 2022</td> <th>  Pseudo R-squ.:     </th>  <td>0.06152</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>21:56:26</td>     <th>  Log-Likelihood:    </th> <td> -27434.</td>
+  <th>Time:</th>                <td>22:39:49</td>     <th>  Log-Likelihood:    </th> <td> -27434.</td>
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -29233.</td>
@@ -16300,23 +16300,28 @@ weighted avg       0.61      0.61      0.61      8437
 <div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot all of the roc curves on one graph</span>
-<span class="n">tuned_lr_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_lr1</span><span class="p">)</span>
-<span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="p">,</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_lr1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># extract predicted probabilities from models</span>
+<span class="n">tuned_lr_pred</span> <span class="o">=</span> <span class="n">tuned_lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">tuned_tree_pred</span> <span class="o">=</span> <span class="n">tuned_tree</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">tuned_rf_pred</span> <span class="o">=</span> <span class="n">tuned_rf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># plot all of the roc curves on one graph</span>
+<span class="n">tuned_lr_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_lr_pred</span><span class="p">)</span>
+<span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="p">,</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_lr_pred</span><span class="p">)</span>
 <span class="n">tuned_lr_auc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
 <span class="n">tuned_lr_plot</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="o">=</span><span class="n">tpr</span><span class="p">,</span> 
 <span class="n">roc_auc</span> <span class="o">=</span> <span class="n">tuned_lr_auc</span><span class="p">,</span> 
 <span class="n">estimator_name</span> <span class="o">=</span> <span class="s1">&#39;Logistic Regression&#39;</span><span class="p">)</span>
 
-<span class="n">tuned_tree_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_tree1</span><span class="p">)</span>
-<span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="p">,</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_tree1</span><span class="p">)</span>
+<span class="n">tuned_tree_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_tree_pred</span><span class="p">)</span>
+<span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="p">,</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_tree_pred</span><span class="p">)</span>
 <span class="n">tuned_tree_auc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
 <span class="n">tuned_tree_plot</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="o">=</span><span class="n">tpr</span><span class="p">,</span>
 <span class="n">roc_auc</span><span class="o">=</span><span class="n">tuned_tree_auc</span><span class="p">,</span> 
 <span class="n">estimator_name</span> <span class="o">=</span> <span class="s1">&#39;Decision Tree&#39;</span><span class="p">)</span>
 
-<span class="n">tuned_rf1_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">tuned_rf1</span><span class="p">)</span>
-<span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="p">,</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_rf1</span><span class="p">)</span>
+<span class="n">tuned_rf1_roc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">tuned_rf_pred</span><span class="p">)</span>
+<span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="p">,</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tuned_rf_pred</span><span class="p">)</span>
 <span class="n">tuned_rf1_auc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
 <span class="n">tuned_rf1_plot</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fpr</span><span class="p">,</span><span class="n">tpr</span><span class="o">=</span><span class="n">tpr</span><span class="p">,</span> 
 <span class="n">roc_auc</span><span class="o">=</span><span class="n">tuned_rf1_auc</span><span class="p">,</span> 
@@ -16490,9 +16495,9 @@ weighted avg       0.61      0.61      0.61      8437
 <pre>+---------------------+--------+--------+
 |        Model        |  AUC   |  MSE   |
 +---------------------+--------+--------+
-| Logistic Regression | 0.6036 | 0.3965 |
-|    Decision Tree    | 0.6009 | 0.3992 |
-|    Random Forest    | 0.6105 | 0.3896 |
+| Logistic Regression | 0.6357 | 0.3965 |
+|    Decision Tree    | 0.6326 | 0.3992 |
+|    Random Forest    | 0.653  | 0.3896 |
 +---------------------+--------+--------+
 </pre>
 </div>
